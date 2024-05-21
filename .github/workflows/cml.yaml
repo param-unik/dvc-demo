@@ -1,8 +1,5 @@
 name: model-wine-quality
-on:
-  push:
-    branches:
-      - main
+on: [push]
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -29,6 +26,7 @@ jobs:
         run:
           echo "## Model Metrics" >> report.md 
           cat metrics.txt >> report.md
+          cat metrics.txt
           cml comment create report.md
           
           # echo '## Data  Viz' >> report.md
