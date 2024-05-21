@@ -12,7 +12,7 @@ seed = 42
 ########## DATA PREP ###########
 ################################
 
-# Load in the data
+# Load in the data #
 df = pd.read_csv("wine_quality.csv")
 
 # Split into train and test sections
