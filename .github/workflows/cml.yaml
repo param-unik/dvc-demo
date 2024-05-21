@@ -14,12 +14,6 @@ jobs:
           node-version: 16
       - uses: iterative/setup-cml@v1
       - uses: actions/setup-python@v4
-      #   with:
-      #     node-version: '16'
-      # - uses: actions/setup-python@v4
-      #   with:
-      #     python-version: '3.11'  
-      # - uses: iterative/setup-cml@v1
       - name: cml_run
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
@@ -34,10 +28,11 @@ jobs:
         run:
           echo "## Model Metrics" >> report.md 
           cat metrics.txt >> report.md
-
-          echo '## Data  Viz' >> report.md
-          echo "![](./feature_importance.png)" >> report.md
-          echo "![](./residuals.png)" >> report.md
-
           cml comment create report.md
+          
+          # echo '## Data  Viz' >> report.md
+          # echo "![](./feature_importance.png)" >> report.md
+          # echo "![](./residuals.png)" >> report.md
+
+          
       
