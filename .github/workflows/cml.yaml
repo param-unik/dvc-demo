@@ -1,8 +1,5 @@
 name: model-wine-quality
-on:
-  push:
-    branches:
-      - main
+on: [push]
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -11,7 +8,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 20
       - uses: iterative/setup-cml@v1
       - uses: actions/setup-python@v4
       - name: cml_run
@@ -28,6 +25,7 @@ jobs:
         run:
           echo "## Model Metrics" >> report.md 
           cat metrics.txt >> report.md
+          cat metrics.txt
           cml comment create report.md
           
           # echo '## Data  Viz' >> report.md
