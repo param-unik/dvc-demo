@@ -6,6 +6,7 @@ on:
 jobs:
   run:
     runs-on: ubuntu-latest
+    permissions: write-all
     container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v3
