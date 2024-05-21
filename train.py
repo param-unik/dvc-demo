@@ -34,10 +34,17 @@ train_score = regr.score(X_train, y_train) * 100
 # Report test set score
 test_score = regr.score(X_test, y_test) * 100
 
+print("Test Score is ", test_score)
+print("Train score is ", train_score)
+
 # Write scores to a file
-with open("metrics.txt", "w") as outfile:
-    outfile.write("Training variance explained: %2.1f%%\n" % train_score)
-    outfile.write("Test variance explained: %2.1f%%\n" % test_score)
+try:
+    with open("metrics.txt", "w") as outfile:
+        outfile.write("Training variance explained: %2.1f%%\n" % train_score)
+        outfile.write("Test variance explained: %2.1f%%\n" % test_score)
+        print("File metrics.txt gets created...")
+except Exception as e:
+    print("Exception happend during file write as ", str(e))
 
 
 ##########################################
@@ -68,6 +75,7 @@ plt.tight_layout()
 plt.savefig("feature_importance.png", dpi=120)
 plt.close()
 
+print("feature_importance.png got created!")
 
 ##########################################
 ############ PLOT RESIDUALS  #############
@@ -90,3 +98,5 @@ plt.xlim((2.5, 8.5))
 
 plt.tight_layout()
 plt.savefig("residuals.png", dpi=120)
+print("residuals.png got created!")
+print("train.py got completely successfully!")
