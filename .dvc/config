@@ -1,0 +1,4 @@
+[core]
+    remote = dvcremote
+['remote "dvcremote"']
+    url = gdrive://1gscCTHfsiUFO-9e1XWVWqe4_fmGVlBRG

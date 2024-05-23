@@ -1,7 +1,11 @@
 name: model-wine-quality
-on: [push]
+on:
+  push:
+    branches:
+      - main
 jobs:
   train-and-report:
+    if: github.event.pull_request.merged
     runs-on: ubuntu-latest
     permissions:
       contents: write
