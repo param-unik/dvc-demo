@@ -15,12 +15,12 @@ jobs:
           pip install -r requirements.txt
           python train.py
 
-          echo "## Model Metrics" >> report.md 
+          # Model Metrics 
           cat metrics.txt >> report.md
           
           echo '## Data  Viz' >> report.md
-          echo "![](./feature_importance.png)" >> report.md
-          echo "![](./residuals.png)" >> report.md
+          echo '![](./feature_importance.png "Feature importance")' >> report.md
+          echo '![](./residuals.png "Residual Plot")' >> report.md
           cml comment create report.md
 
           
